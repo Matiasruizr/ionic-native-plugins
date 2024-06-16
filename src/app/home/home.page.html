@@ -7,18 +7,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button expand="block" routerLink="/camera">Camera 📷</ion-button>
+  <ion-button expand="block" routerLink="/map">Map 🗺️</ion-button>
 
   <div id="container">
     <strong>Cat Fact:</strong>
     <p>{{ fact }}</p>
   </div>
 
-  <!-- Add links (router) to camera and map pages -->
-  <ion-button expand="block" routerLink="/camera">Camera 📷</ion-button>
-  <ion-button expand="block" routerLink="/map">Map 🗺️</ion-button>
+  <ion-list>
+    <ion-list-header color="warning">To do list</ion-list-header>
+    <ion-item *ngFor="let todo of todos">
+      <ion-label>{{ todo.todo }}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="todo.completed" (ionChange)="updateTodo(todo)"></ion-checkbox>
+      <ion-button slot="end" color="danger" (click)="deleteTodo(todo)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input placeholder="New todo" [(ngModel)]="newTodo"></ion-input>
+    <ion-button slot="end" color="success" (click)="addTodo()">Add</ion-button>
+  </ion-item>
 </ion-content>
