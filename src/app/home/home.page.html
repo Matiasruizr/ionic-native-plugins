@@ -7,8 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button expand="block" routerLink="/camera">Camera 📷</ion-button>
-  <ion-button expand="block" routerLink="/map">Map 🗺️</ion-button>
+  <ion-button expand="block" id="homeButton" routerLink="/camera">Camera 📷</ion-button>
+  <ion-button expand="block" id="cameraButton" routerLink="/map">Map 🗺️</ion-button>
 
   <div id="container">
     <strong>Cat Fact:</strong>
@@ -20,7 +20,7 @@
     <ion-item *ngFor="let todo of todos">
       <ion-label>{{ todo.todo }}</ion-label>
       <ion-checkbox slot="end" [(ngModel)]="todo.completed" (ionChange)="updateTodo(todo)"></ion-checkbox>
-      <ion-button slot="end" color="danger" (click)="deleteTodo(todo)">Delete</ion-button>
+      <ion-button slot="end" color="danger" (click)="deleteTodo(todo)" id="deleteButton">Delete</ion-button>
     </ion-item>
   </ion-list>
 

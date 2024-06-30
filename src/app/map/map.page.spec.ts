@@ -14,4 +14,19 @@ describe('MapPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a map', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#mapContainer')).toBeTruthy();
+  });
+
+  it('should have a button to go back to home page', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#homeButton')).toBeTruthy();
+  });
+
+  it('should have ion-title with text "Map"', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('ion-title').textContent).toContain('Map');
+  });
 });

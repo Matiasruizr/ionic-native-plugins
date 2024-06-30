@@ -30,7 +30,23 @@ describe('HomePage', () => {
 
   it('should have a newTodo input', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('#newTodo').toExist);
+    expect(compiled.querySelector('#newTodo')).toBeTruthy();
   });
-    
+  
+  it('should have a button to go back to home page', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#homeButton')).toBeTruthy();
+  });
+
+  it('should have a button to go to camera page', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#cameraButton')).toBeTruthy();
+  });
+
+  it('should call addTodo method when addButton is clicked', () => {
+    spyOn(component, 'addTodo');
+    const addButton = fixture.nativeElement.querySelector('#addButton');
+    addButton.click();
+    expect(component.addTodo).toHaveBeenCalled();
+  });
 });
