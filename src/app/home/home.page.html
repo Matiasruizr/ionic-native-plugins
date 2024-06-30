@@ -25,7 +25,7 @@
   </ion-list>
 
   <ion-item>
-    <ion-input placeholder="New todo" [(ngModel)]="newTodo"></ion-input>
-    <ion-button slot="end" color="success" (click)="addTodo()">Add</ion-button>
+    <ion-input placeholder="New todo" [(ngModel)]="newTodo" id="newTodo"></ion-input>
+    <ion-button slot="end" color="success" (click)="addTodo()" id="addButton">Add</ion-button>
   </ion-item>
 </ion-content>

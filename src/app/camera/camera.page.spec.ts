@@ -14,4 +14,9 @@ describe('CameraPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a button to take a picture', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#takePhotoButton').textContent).toContain('Take a photo');
+  })
 });
